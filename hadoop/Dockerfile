@@ -38,7 +38,6 @@ RUN mkdir -p ~/hdfs/namenode && \
     mv /tmp/slaves $HADOOP_HOME/etc/hadoop/workers && \
     mv /tmp/start-hadoop.sh ~/start-hadoop.sh && \
     chmod +x ~/start-hadoop.sh && \
-    chmod +x ~/run-wordcount.sh && \
     chmod +x $HADOOP_HOME/sbin/start-dfs.sh && \
     chmod +x $HADOOP_HOME/sbin/start-yarn.sh && \
     sed -i '2i YARN_RESOURCEMANAGER_USER=root\nHADOOP_SECURE_DN_USER=yarn\nYARN_NODEMANAGER_USER=root' $HADOOP_HOME/sbin/*-yarn.sh && \
