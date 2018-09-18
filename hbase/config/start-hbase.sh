@@ -1,5 +1,6 @@
 #!/bin/bash
 
+service ssh start
 echo -e "\n"
 
 $HBASE_HOME/bin/start-hbase.sh

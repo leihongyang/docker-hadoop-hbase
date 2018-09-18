@@ -1,5 +1,6 @@
 #!/bin/bash
 
+service ssh start
 echo -e "\n"
 
 $HADOOP_HOME/sbin/start-dfs.sh

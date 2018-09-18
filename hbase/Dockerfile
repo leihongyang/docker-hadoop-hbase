@@ -27,6 +27,7 @@ COPY config/* /tmp/
 RUN mv /tmp/hbase-env.sh $HBASE_HOME/conf/hbase-env.sh && \
     mv /tmp/hbase-site.xml $HBASE_HOME/conf/hbase-site.xml && \
     mv /tmp/regionservers $HBASE_HOME/conf/regionservers && \
-    mv /tmp/start-hbase.sh /root/
+    mv /tmp/start-hbase.sh /root/ && \
+    mv /tmp/ssh_config ~/.ssh/config
 
-CMD [ "sh", "-c", "service ssh start; ./start-hbase.sh"]
+CMD ["start-hbase.sh"]
