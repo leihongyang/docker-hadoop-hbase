@@ -44,4 +44,4 @@ RUN mkdir -p ~/hdfs/namenode && \
     sed -i '2i HDFS_DATANODE_USER=root\nHADOOP_SECURE_DN_USER=hdfs\nHDFS_NAMENODE_USER=root\nHDFS_SECONDARYNAMENODE_USER=root' $HADOOP_HOME/sbin/*-dfs.sh && \
     $HADOOP_HOME/bin/hdfs namenode -format
 
-CMD ["start-hadoop.sh"]
+CMD ["/root/start-hadoop.sh"]

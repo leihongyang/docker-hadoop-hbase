@@ -7,11 +7,10 @@ services:
       - "50070:50070"  
       - "9000:9000"  
 
-
   hbase:
     image: kycloud/hbase:1.0.0
     hostname: hbase-master
     ports: 
       - "16010:16010"
-    external_links: 
+    links: 
       - hadoop

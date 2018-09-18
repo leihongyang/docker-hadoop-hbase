@@ -30,4 +30,4 @@ RUN mv /tmp/hbase-env.sh $HBASE_HOME/conf/hbase-env.sh && \
     mv /tmp/start-hbase.sh /root/ && \
     mv /tmp/ssh_config ~/.ssh/config
 
-CMD ["start-hbase.sh"]
+CMD ["/root/start-hbase.sh"]
