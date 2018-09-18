@@ -1,0 +1,14 @@
+version: "3.5"
+services:
+  hadoop-cluster:
+    image: lhy/hadoop:1.0.0
+    container_name: hadoop-master
+    hostname: hadoop-master
+    expose: ["9000"]
+    ports: ["50070"]
+
+  hbase-cluster:
+    image: lhy/hbase:1.0.0
+    container_name: hbase-master
+    hostname: hbase-master
+    ports: ["16010"]
