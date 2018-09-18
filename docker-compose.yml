@@ -6,11 +6,9 @@ services:
     hostname: hadoop-master
     expose: ["9000"]
     ports: ["50070"]
-    command: ./start-hadoop.sh
 
   hbase-cluster:
     image: kycloud/hbase:1.0.0
     container_name: hbase
     hostname: hbase-master
     ports: ["16010"]
-    command: ./start-hbase.sh
