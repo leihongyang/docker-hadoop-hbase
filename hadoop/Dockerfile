@@ -43,5 +43,6 @@ RUN mkdir -p ~/hdfs/namenode && \
     sed -i '2i YARN_RESOURCEMANAGER_USER=root\nHADOOP_SECURE_DN_USER=yarn\nYARN_NODEMANAGER_USER=root' $HADOOP_HOME/sbin/*-yarn.sh && \
     sed -i '2i HDFS_DATANODE_USER=root\nHADOOP_SECURE_DN_USER=hdfs\nHDFS_NAMENODE_USER=root\nHDFS_SECONDARYNAMENODE_USER=root' $HADOOP_HOME/sbin/*-dfs.sh && \
     $HADOOP_HOME/bin/hdfs namenode -format
+    service ssh start
 
-CMD [ "sh", "-c", "service ssh start; bash"]
+#CMD [ "sh", "-c", "service ssh start; ./start-hadoop.sh"]
