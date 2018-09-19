@@ -39,6 +39,6 @@
 	</property>
 	<property>
 		<name>hbase.master.info.port</name>
-		<value>16010</value>
+		<value>60010</value>
 	</property>
 </configuration>
