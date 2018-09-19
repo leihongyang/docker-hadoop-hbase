@@ -1,18 +1,16 @@
 version: "3.5"
 services:
-  hadoop:
+  hadoop-master:
     image: kycloud/hadoop:1.0.0
     hostname: hadoop-master
     networks:
-      hbase_net:
-        aliases:
-          - hadoop.docker
+      - hbase_net
     ports: 
       - "50070"
     expose:   
       - "9000"  
 
-  hbase:
+  hbase-master:
     image: kycloud/hbase:1.0.0
     hostname: hbase-master
     networks: 
@@ -20,9 +18,8 @@ services:
     ports: 
       - "16010"
     depends_on: 
-      - hadoop
-    extra_hosts:
-      - ""
+      - hadoop-master
+
 networks: 
   hbase_net:
     driver: overlay
