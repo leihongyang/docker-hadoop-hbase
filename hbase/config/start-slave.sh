@@ -3,5 +3,7 @@
 service ssh start
 echo -e "\n"
 
-tailf $HBASE_HOME/logs/hbase--master-hbase-master.log
+mkdir $HBASE_HOME/logs
+
+tailf $HBASE_HOME/logs/*
 
