@@ -14,14 +14,14 @@ rm -rf /var/lib/apt/lists/* && \
 addgroup hadoop && \
 useradd -m hadoop -g hadoop -p hadoop && \
 mkdir /var/run/sshd && \
-ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa && cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
-
-# install hadoop 2.7.2
-ADD hadoop-3.1.1.tar.gz /usr/local/
-ADD jdk-8u181-linux-x64.tar.gz /usr/local/
+ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa && cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys && \
+wget http://mirrors.hust.edu.cn/apache/hadoop/common/hadoop-3.1.1/hadoop-3.1.1.tar.gz && \
+tar -xzf hadoop-3.1.1.tar.gz && mv hadoop-3.1.1 /usr/local/hadoop-3.1.1 && rm hadoop-3.1.1.tar.gz && \
+wget --no-check-certificate -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u181-b13/96a7b8442fe848ef90c96a2fad6ed6d1/jdk-8u181-linux-x64.tar.gz && \
+tar -xzf jdk-8u181-linux-x64.tar.gz && mv jdk1.8.0_181 /usr/local/jdk1.8.0_181 && rm jdk-8u181-linux-x64.tar.gz
 
 ENV JAVA_HOME /usr/local/jdk1.8.0_181
-ENV HADOOP_HOME=/usr/local/hadoop-3.1.1 
+ENV HADOOP_HOME /usr/local/hadoop-3.1.1 
 ENV PATH=$PATH:$JAVA_HOME/bin:$HADOOP_HOME/bin:$HADOOP_HOME/sbin 
 
 COPY config/* /tmp/

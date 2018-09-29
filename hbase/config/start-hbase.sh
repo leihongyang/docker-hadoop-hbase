@@ -3,6 +3,8 @@
 service ssh start
 echo -e "\n"
 
+sleep 60
+
 $HBASE_HOME/bin/start-hbase.sh
 
 echo -e "\n"
