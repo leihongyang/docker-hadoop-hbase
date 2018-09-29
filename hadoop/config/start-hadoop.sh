@@ -8,6 +8,8 @@ service ssh restart
 
 echo -e "\n"
 
+sleep 120
+
 $HADOOP_HOME/sbin/start-dfs.sh
 
 echo -e "\n"
