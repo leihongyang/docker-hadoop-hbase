@@ -33,6 +33,10 @@
 		<name>hbase.zookeeper.quorum</name>
 		<value>hbase-master</value>
 	</property>
+        <property>
+		<name>zookeeper.znode.parent</name>
+		<value>/hbase/master</value>
+	</property>
 	<property>
 		<name>hbase.zookeeper.property.dataDir</name>
 		<value>/opt/hbase/zookeeper</value>
