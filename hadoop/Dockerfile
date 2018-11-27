@@ -17,8 +17,8 @@ mkdir /var/run/sshd && \
 ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa && cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys && \
 wget http://mirrors.hust.edu.cn/apache/hadoop/common/hadoop-3.1.1/hadoop-3.1.1.tar.gz && \
 tar -xzf hadoop-3.1.1.tar.gz && mv hadoop-3.1.1 /usr/local/hadoop-3.1.1 && rm hadoop-3.1.1.tar.gz && \
-wget --no-check-certificate -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u181-b13/96a7b8442fe848ef90c96a2fad6ed6d1/jdk-8u181-linux-x64.tar.gz && \
-tar -xzf jdk-8u181-linux-x64.tar.gz && mv jdk1.8.0_181 /usr/local/jdk1.8.0_181 && rm jdk-8u181-linux-x64.tar.gz
+wget --no-check-certificate -c --header "Cookie: oraclelicense=accept-securebackup-cookie" -O jdk-8u181-linux-x64.tar.gz https://download.oracle.com/otn-pub/java/jdk/8u191-b12/2787e4a523244c269598db4e85c51e0c/jdk-8u191-linux-x64.tar.gz && \
+tar -xzf jdk-8u181-linux-x64.tar.gz && mv jdk1.8.0_191 /usr/local/jdk1.8.0_181 && rm jdk-8u181-linux-x64.tar.gz
 
 ENV JAVA_HOME /usr/local/jdk1.8.0_181
 ENV HADOOP_HOME /usr/local/hadoop-3.1.1 
@@ -43,6 +43,6 @@ RUN mkdir -p ~/hdfs/namenode && \
     chmod +x $HADOOP_HOME/sbin/start-yarn.sh && \
     sed -i '2i YARN_RESOURCEMANAGER_USER=root\nHADOOP_SECURE_DN_USER=yarn\nYARN_NODEMANAGER_USER=root' $HADOOP_HOME/sbin/*-yarn.sh && \
     sed -i '2i HDFS_DATANODE_USER=root\nHADOOP_SECURE_DN_USER=hdfs\nHDFS_NAMENODE_USER=root\nHDFS_SECONDARYNAMENODE_USER=root' $HADOOP_HOME/sbin/*-dfs.sh && \
-    $HADOOP_HOME/bin/hdfs namenode -format
 
-CMD ["/root/start-hadoop.sh"]
+EXPOSE 22
+CMD    ["/usr/sbin/sshd", "-D"]
