@@ -34,5 +34,4 @@ RUN mv /tmp/hbase-env.sh $HBASE_HOME/conf/hbase-env.sh && \
     chmod +x /root/start-*.sh && \
     mv /tmp/ssh_config ~/.ssh/config
 
-EXPOSE 22
 CMD    ["/usr/sbin/sshd", "-D"]
